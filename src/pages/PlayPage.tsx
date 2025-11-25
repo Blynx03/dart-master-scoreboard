@@ -9,7 +9,6 @@ import Footer from '../components/Footer'
 const PlayPage = () => {
 
    const { players, selectedMinimumRangeValue } = useContext(UserContext) as UserContextType;
-   console.log(players, selectedMinimumRangeValue)
 
     return (
         <>
@@ -18,7 +17,7 @@ const PlayPage = () => {
                 <AddPlayer />
                 <GameRange />
                 <div className='play-page-done-btns-container'>
-                    { (players.length > 0 && selectedMinimumRangeValue) && <Button classes='btn add-player-start-btn' choice='start-game' text='Start Game' />}
+                    { (players.length > 0 && selectedMinimumRangeValue > 0) && <Button classes='btn add-player-start-btn' choice='start-game' text='Start Game' />}
                     <Button classes='btn back-to-main-btn' choice='' text='Main Page' />
                 </div>
             </div>

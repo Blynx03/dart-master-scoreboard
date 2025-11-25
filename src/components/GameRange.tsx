@@ -5,16 +5,12 @@ const GameRange = () => {
     
     const { selectedMinimumRangeValue, setSelectedMinimumRangeValue } = useContext(UserContext) as UserContextType;
     const [isRangeSliderDisabled, setIsRangeSliderDisabled] = useState<boolean>(true)
-    const rangeOption = () => {
-
-    }
 
     const handleSelectedCustomRange = (e: ChangeEvent<HTMLInputElement>) => {
         setSelectedMinimumRangeValue(Number(e.target.value));
     }
 
-    const handleSelectedRange = (e: ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
+    const handleMinimumRangeValue = (value: string | undefined) => {
         switch (value) {
             case '15': setIsRangeSliderDisabled(true);
                         setSelectedMinimumRangeValue(Number(value));
@@ -27,6 +23,16 @@ const GameRange = () => {
             default: console.log('No button is selected');
                         break;
         }
+    }
+
+    const handleInputSelectedRange = (e: ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        handleMinimumRangeValue(value);
+    }
+
+    const handleLabelSelectedRange = (e: React.MouseEvent<HTMLLabelElement> ) => {
+        const value = e.currentTarget.dataset.rangeValue;
+        handleMinimumRangeValue(value);
     }
 
     const customRangeContent =             
@@ -44,15 +50,15 @@ const GameRange = () => {
             <div className='game-range-title'>GAME RANGE</div>
             <div className='game-range-caption'>Choose the range you'll play</div>
             <div className='range-container'>
-                <label htmlFor='target-range'>
-                    <input id='fifteen-bull' className='target-range-input' type='radio' name='target-range' value='15' onChange={(e) => handleSelectedRange(e) } defaultChecked></input>
+                <label htmlFor='fifteen-bull' data-range-value='15' onClick={(e) => handleLabelSelectedRange(e)}>
+                    <input id='fifteen-bull' className='target-range-input' type='radio' name='target-range' value='15' onChange={(e) => handleInputSelectedRange(e) } defaultChecked></input>
                     15 to Bull
                 </label>
-                <label htmlFor='twelve-bull'>
-                    <input id='twelve-bull' className='target-range-input' type='radio' name='target-range' value='12' onChange={(e) => handleSelectedRange(e) }></input>
+                <label htmlFor='twelve-bull' data-range-value='12' onClick={(e) => handleLabelSelectedRange(e)}>
+                    <input id='twelve-bull' className='target-range-input' type='radio' name='target-range' value='12' onChange={(e) => handleInputSelectedRange(e) }></input>
                     12 to Bull
                 </label>
-                <label htmlFor='custom-range-option'>
+                <label htmlFor='custom-range-option' data-range-value='custom-range' onClick={(e) => handleLabelSelectedRange(e)}>
                     <input id='custom-range-option' className='target-range-input' type='radio' name='target-range' value='custom-range' onChange={() => setIsRangeSliderDisabled(!isRangeSliderDisabled)}></input>
                     Custom Range
                 </label>
