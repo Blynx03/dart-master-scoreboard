@@ -1,7 +1,6 @@
 import React from 'react'
-import Button from '../components/Button'
-import Title from '../components/Title'
 import Footer from '../components/Footer'
+import ButtonNav from '../components/ButtonNav'
 
 const HowToPlayPage = () => {
   return (
@@ -39,9 +38,9 @@ const HowToPlayPage = () => {
         </div>
         
          <div className='how-to-play-btn-container'>
-            <Button classes='btn how-to-play-player-btn' choice='players' text='Play' />
-            <Button classes='btn how-to-play-back-btn' choice='' text='Back to Home' />
-            <Button classes='btn how-to-play-the-board-btn' choice='the-board' text='The Board' />
+            <ButtonNav classes='btn how-to-play-player-btn' choice='players' text='Play' />
+            <ButtonNav classes='btn how-to-play-back-btn' choice='' text='Back to Home' />
+            <ButtonNav classes='btn how-to-play-the-board-btn' choice='the-board' text='The Board' />
         </div>
         <Footer />
     </div>

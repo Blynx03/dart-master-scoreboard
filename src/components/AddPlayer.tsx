@@ -1,7 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import UserContext, { type UserContextType } from '../context/UserContext';
-import Button from './Button';
-import handleClickNav from '../utilities/handleClickNav';
 
 const AddPlayer = () => {
 
@@ -12,32 +10,33 @@ const AddPlayer = () => {
             inputPlayerNameRef.current && (inputPlayerNameRef.current.value = '') 
             return;
         } else {
-            setPlayers((prev) => [...prev, playerName])
+            setPlayers((prev) => [...prev, {name: playerName}])
             setPlayerName('');
             if (inputPlayerNameRef.current) {
                 inputPlayerNameRef.current.value = '';
                 inputPlayerNameRef.current.focus();
             }
         }
+        
     }
 
     const handleDelete = (name: string) => {
-        const newPlayers = players.filter((player) => player !== name )
+        const newPlayers = players.filter((player) => player.name !== name )
         setPlayers(newPlayers)
     }
 
     useEffect(() => {
         // refresh players list when player is deleted
-        
-    }, [players, setPlayers])
+        console.log('players = ' + players)
+    }, [players])
 
     const playersNameContainer = 
             <div className='players-name-container'>
                 {players.map((player, i) =>  
                     <div key={i} className='player-name-container' >
                         <span>Player {i+1}: </span>
-                        <div data-value={i}>{player}</div>
-                        <span key={player+i} onClick={() => handleDelete(player)} className='material-symbols-outlined delete-icon'>delete</span>
+                        <div data-value={i}>{player.name}</div>
+                        <span key={player.name+i} onClick={() => handleDelete(player.name)} className='material-symbols-outlined delete-icon'>delete</span>
                     </div>
                 )}
             </div>

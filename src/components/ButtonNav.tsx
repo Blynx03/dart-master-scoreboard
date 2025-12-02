@@ -9,7 +9,7 @@ type ButtonProps = {
     // onClick: (value: string) => void;
 }
 
-const Button = ({classes, choice, text}:ButtonProps) => {
+const ButtonNav = ({classes, choice, text}:ButtonProps) => {
 
   const nav = useNavigate()
     
@@ -18,4 +18,4 @@ const Button = ({classes, choice, text}:ButtonProps) => {
   )
 }
 
-export default Button
+export default ButtonNav

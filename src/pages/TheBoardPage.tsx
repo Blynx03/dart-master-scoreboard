@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from '../components/Button'
 import Footer from '../components/Footer'
+import ButtonNav from '../components/ButtonNav'
 
 const TheBoardPage = () => {
   return (
@@ -67,9 +67,9 @@ const TheBoardPage = () => {
         </div>
         
         <div className='the-board-btn-container'>
-            <Button classes='btn the-board-player-btn' choice='players' text='Play' />
-            <Button classes='btn the-board-back-btn' choice='' text='Back to Home' />
-            <Button classes='btn the-board-how-to-play-btn' choice='how-to-play' text='How To Play' />
+            <ButtonNav classes='btn the-board-player-btn' choice='players' text='Play' />
+            <ButtonNav classes='btn the-board-back-btn' choice='' text='Back to Home' />
+            <ButtonNav classes='btn the-board-how-to-play-btn' choice='how-to-play' text='How To Play' />
         </div>
         <Footer />
     </div>

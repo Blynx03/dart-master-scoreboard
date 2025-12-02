@@ -1,48 +1,57 @@
-import React, { useContext, type ReactNode } from 'react'
+import React, { useContext, useState, useEffect, type ReactNode } from 'react'
 import UserContext, { type UserContextType } from '../context/UserContext'
-import Title from '../components/Title';
+import ButtonNav from '../components/ButtonNav';
+import Footer from '../components/Footer';
+import ShowTargetsAndScoreContainers from '../components/ShowTargetsAndScoreContainers';
+import ShowPlayersName from '../components/ShowPlayersName';
+import { ShowScoreChoices } from '../components/ShowScoreChoices';
 
 const StartGamePage = () => {
 
-    const { players, selectedMinimumRangeValue } = useContext(UserContext) as UserContextType;
+    const { players, setPlayers, selectedMinimumRangeValue, playersTurn, setPlayerScoreContainerClass, setScoreboardPlayersNameContainerClass, showInputScoreContainer, setPlayersTurn } = useContext(UserContext) as UserContextType;
+    const [ activePlayer, setActivePlayer ] = useState<string>('');
+    const [ isClickable, setIsClickable ] = useState<boolean>(false);
 
-    let playersName: ReactNode = 
-        players.map((player,i) => 
-            <div key={`${player} + ${i}`}>{player}</div>
-        )
-    
-    const showPlayers: ReactNode = 
-        <div className='players-name-container'>
-            <div className='target'>
-                Target
-            </div>
-            {playersName}
-        </div>
-    
-    const totalTargets = Array.from( {length: 20});
+    useEffect(() => {
+        console.log(selectedMinimumRangeValue);
+        console.log(players)
+        switch (players.length) {
+            case 2: setPlayerScoreContainerClass('player-score-row-two-players');
+                    setScoreboardPlayersNameContainerClass('scoreboard-two-players-name-container');
+                    break;
+            case 3: setPlayerScoreContainerClass('player-score-row-three-players');
+                    setScoreboardPlayersNameContainerClass('scoreboard-three-players-name-container');
+                    break;
+            case 4: setPlayerScoreContainerClass('player-score-row-four-players');
+                    setScoreboardPlayersNameContainerClass('scoreboard-four-players-name-container');
+                    break;
+            default: console.log('Number of players should be 2 to 4')
+                    break;
+        }
+    },[setPlayers]);
 
-    let showTargets: ReactNode = 
-        totalTargets.map((_, i) => 
-            <div className='target-score-container' key={`target${i}`}>
-                <div className='target'>
-                    {(totalTargets.length - i) >= selectedMinimumRangeValue ? totalTargets.length - i : (totalTargets.length - i) === selectedMinimumRangeValue - 1 && 'Bull'}
-                </div>
-                <div className='score-container'>
-                    {(totalTargets.length - i) >= selectedMinimumRangeValue - 1 && players.map((player) => 
-                        <div className='target-score-row' key={`${player}${totalTargets.length - i}`}>
-                            {player}
-                            {/* insert the scoring logic here */}
-                        </div>
-                    )}
-                </div>
-            </div>
-        ) 
+    const handleAddScore = () => {
+        console.log('score added')
+        // make targets clickable only when add-score-btn is pressed
+        // provide 3 choices for scoring (1, 2 and 3)
+        // store points in useState for each player
+        // 
+    }
 
     return (
         <div className='game-container'>
-            <Title />
-            {showPlayers}
-            {showTargets}
+            <div className='game-title-container'>
+                <div className='game-title-wrapper'>
+                    <span className="game-title">DART MASTERS SCOREBOARD</span>
+                </div>
+            </div>
+            
+            <ShowPlayersName />
+            <ShowTargetsAndScoreContainers />
+            {showInputScoreContainer ? <ShowScoreChoices /> : null}
+            <button className='add-score-btn' onClick={()=>handleAddScore()} value={playersTurn} />
+            <ButtonNav classes='btn' choice='' text='Quit' />
+            <Footer />
         </div>
     )
 }
