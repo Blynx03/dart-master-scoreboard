@@ -11,39 +11,27 @@ import StartGamePage from './pages/StartGamePage';
 function App() {
 
   const [ playerName, setPlayerName ] = useState('');
+  const [ playerIndex, setPlayerIndex ] = useState<number | undefined>();
   const [ players, setPlayers ] = useState<PlayersType[]>([]);
   const inputPlayerNameRef = useRef<HTMLInputElement>(null);
   const [ selectedMinimumRangeValue, setSelectedMinimumRangeValue ] = useState<number>(0);
   const [ playersTurn, setPlayersTurn ] = useState<string>('');
   const [ playerScoreContainerClass, setPlayerScoreContainerClass ] = useState<string>('');
   const [ scoreboardPlayersNameContainerClass, setScoreboardPlayersNameContainerClass ] = useState<string>('');
-  const [ showInputScoreContainer, setShowInputScoreContainer ] = useState<boolean>(false);
-  const [ playerScoreColumn, setPlayerScoreColumn ] = useState<number>(players.length);
-  const [ playerScoreRow, setPlayerScoreRow ] = useState<number>(20);
-
-  const initialTargetScore = Array.from({length: 20}, () => Array(players.length).fill(0))
-  const [ playerTargetScore, setPlayerTargetScore ] = useState<number[][]>(initialTargetScore);
-
-  const initialTileScore = Array.from({length: 20}, () => Array(players.length).fill(''));
-  const [ playerTileScore, setPlayerTileScore ] = useState<string[][]>(initialTileScore);
+  const [ scoreChoicesIsVisible, setScoreChoicesIsVisible ] = useState(false);
   const [ chosenScore, setChosenScore ] = useState<string>('');
-
-    
 
   
   const value = {
     playerName, setPlayerName,
+    playerIndex, setPlayerIndex,
     players, setPlayers,
     inputPlayerNameRef,
     selectedMinimumRangeValue, setSelectedMinimumRangeValue,
     playersTurn, setPlayersTurn,
     playerScoreContainerClass, setPlayerScoreContainerClass,
     scoreboardPlayersNameContainerClass, setScoreboardPlayersNameContainerClass,
-    showInputScoreContainer, setShowInputScoreContainer, 
-    playerScoreColumn, setPlayerScoreColumn,
-    playerScoreRow, setPlayerScoreRow,
-    playerTargetScore, setPlayerTargetScore,
-    playerTileScore, setPlayerTileScore,
+    scoreChoicesIsVisible, setScoreChoicesIsVisible,
     chosenScore, setChosenScore
   }
 

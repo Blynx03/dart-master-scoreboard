@@ -8,13 +8,9 @@ import { ShowScoreChoices } from '../components/ShowScoreChoices';
 
 const StartGamePage = () => {
 
-    const { players, setPlayers, selectedMinimumRangeValue, playersTurn, setPlayerScoreContainerClass, setScoreboardPlayersNameContainerClass, showInputScoreContainer, setPlayersTurn } = useContext(UserContext) as UserContextType;
-    const [ activePlayer, setActivePlayer ] = useState<string>('');
-    const [ isClickable, setIsClickable ] = useState<boolean>(false);
+    const { players, setPlayers, selectedMinimumRangeValue, playersTurn, setPlayerScoreContainerClass, setScoreboardPlayersNameContainerClass, scoreChoicesIsVisible, setPlayersTurn } = useContext(UserContext) as UserContextType;
 
     useEffect(() => {
-        console.log(selectedMinimumRangeValue);
-        console.log(players)
         switch (players.length) {
             case 2: setPlayerScoreContainerClass('player-score-row-two-players');
                     setScoreboardPlayersNameContainerClass('scoreboard-two-players-name-container');
@@ -48,9 +44,9 @@ const StartGamePage = () => {
             
             <ShowPlayersName />
             <ShowTargetsAndScoreContainers />
-            {showInputScoreContainer ? <ShowScoreChoices /> : null}
+            {scoreChoicesIsVisible ? <ShowScoreChoices /> : null}
             <button className='add-score-btn' onClick={()=>handleAddScore()} value={playersTurn} />
-            <ButtonNav classes='btn' choice='' text='Quit' />
+            <ButtonNav classes='btn start-game-page-quit-btn' choice='' text='Quit' />
             <Footer />
         </div>
     )

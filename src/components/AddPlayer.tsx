@@ -25,11 +25,6 @@ const AddPlayer = () => {
         setPlayers(newPlayers)
     }
 
-    useEffect(() => {
-        // refresh players list when player is deleted
-        console.log('players = ' + players)
-    }, [players])
-
     const playersNameContainer = 
             <div className='players-name-container'>
                 {players.map((player, i) =>  

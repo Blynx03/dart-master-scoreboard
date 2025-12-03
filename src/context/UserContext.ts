@@ -1,8 +1,10 @@
 import React, { createContext, type Dispatch, type RefObject, type SetStateAction } from 'react'
 
-export type UserContextType = {
+export interface UserContextType {
     playerName: string;
     setPlayerName: Dispatch<SetStateAction<string>>;
+    playerIndex: number | undefined;
+    setPlayerIndex: Dispatch<SetStateAction<number | undefined>>;
     players: PlayersType[];
     setPlayers: Dispatch<SetStateAction<PlayersType[]>>;
     inputPlayerNameRef: RefObject<HTMLInputElement | null>;
@@ -14,30 +16,16 @@ export type UserContextType = {
     setPlayerScoreContainerClass: Dispatch<SetStateAction<string>>;
     scoreboardPlayersNameContainerClass: string;
     setScoreboardPlayersNameContainerClass: Dispatch<SetStateAction<string>>;
-    showInputScoreContainer: boolean;
-    setShowInputScoreContainer: Dispatch<SetStateAction<boolean>>;
-    playerScoreColumn: number;
-    setPlayerScoreColumn: Dispatch<SetStateAction<number>>;
-    playerScoreRow: number;
-    setPlayerScoreRow: Dispatch<SetStateAction<number>>;
-    playerTargetScore: number[][];
-    setPlayerTargetScore: Dispatch<SetStateAction<number[][]>>;
-    playerTileScore: string[][];
-    setPlayerTileScore: Dispatch<SetStateAction<string[][]>>;
+    scoreChoicesIsVisible: boolean;
+    setScoreChoicesIsVisible: Dispatch<SetStateAction<boolean>>;
     chosenScore: string;
     setChosenScore: Dispatch<SetStateAction<string>>;
 }
 
-export type ScorePerTargetType = {
-    target: string,
-    score: number,
-    choicesVisible: boolean
-}
-
-export type PlayersType = {
+export interface PlayersType {
     name: string,
-    scorePerTarget?: ScorePerTargetType[],
-    totalScore?: number
+    numberScores?: Record<number, number>,
+    stringScores?: Record<number, string>
 }
 
 
