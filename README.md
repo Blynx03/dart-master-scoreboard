@@ -191,19 +191,19 @@ This structure is **scalable**, clean, and follows **industry best practices**.
 (Add images here)
 
 ### 🏠 Main Menu  
-![All text](main-page.png)
+![All text](/assets/images/main-page.png)
 
 ### 🎯 The Dart Board
-![All text](board-page.png)
+![All text](/assets/images/board-page.png)
 
 ### 👥 Add Players  
-![All text](add-players.png)
+![All text](/assets/images/add-players.png)
 
 ### 🎯 Scoreboard  
-![All text](scoreboard-with-setpoint.png)
+![All text](/assets/images/scoreboard-with-setpoint.png)
 
 ### 🏆 Winner Popup  
-![All text](winner.png)
+![All text](/assets/images/winner.png)
 
 
 ---
