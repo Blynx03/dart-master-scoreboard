@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
-import UserContext, { type PlayersType, type UserContextType } from '../context/UserContext';
+import React, { useContext } from 'react'
+import UserContext, { type UserContextType } from '../context/UserContext';
 import TargetScoreContainer from './TargetScoreContainer';
-import { ShowScoreChoices } from './ShowScoreChoices';
 
 const ShowTargetsAndScoreContainers = () => {
     const { selectedMinimumRangeValue } = useContext(UserContext) as UserContextType;
@@ -15,7 +14,7 @@ const ShowTargetsAndScoreContainers = () => {
             {rangeArray.map((_, i) => {
                 return (
                     <React.Fragment key={i}>
-                        <TargetScoreContainer target={20-i} range={range} playerIndex={i}/>
+                        <TargetScoreContainer target={20-i} playerIndex={i}/>
                     </React.Fragment>
                 )
             })}

@@ -7,8 +7,10 @@ const TheBoardPage = () => {
     <div className='the-board-page-container'>
 
         <div className='the-board-page-title-container'>
-            <div className='the-board-title'>Understanding the Dartboard</div>
-            <div className='the-board-caption'>A simple guide to what every part of the board does.</div>
+            <div className='the-board-title'>UNDERSTANDING THE BOARD</div>
+            <div className='the-board-caption-wrapper'>
+              <div className='the-board-caption'>A SIMPLE GUIDE TO WHAT EVERY PART OF THE BOARD DOES.</div>
+            </div>
         </div>
 
         <div className='the-board-page-description-container'>

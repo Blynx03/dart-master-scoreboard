@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react'
-import UserContext, { type UserContextType } from '../context/UserContext';
+import { useContext } from 'react'
+import UserContext, { type PlayersType, type UserContextType } from '../context/UserContext';
 
 export const ShowScoreChoices = () => {
-    const { players, playerName, playerIndex, setPlayers, setChosenScore, setScoreChoicesIsVisible } = useContext(UserContext) as UserContextType;
-    
+    const { players, setPlayers, playerName, playerIndex, selectedMinimumRangeValue, setChosenScore, setScoreChoicesIsVisible, setWeHaveAWinner } = useContext(UserContext) as UserContextType;
+
     const updateScore = (score: number, storeScore: string) => {
         const updatedPlayers = players.map((player, i) => {
             if (player.name !== playerName || playerIndex === undefined) return player;
@@ -12,7 +12,19 @@ export const ShowScoreChoices = () => {
             }})
         console.log('updated Players = ', updatedPlayers)
         setPlayers(updatedPlayers);
+        checkScores(updatedPlayers)
+    }
 
+    const checkScores = (players: PlayersType[]) => {
+        let pl = players.find((p) => p.name === playerName);
+            
+        let scoreObj = pl?.numberScores;
+        let isDone = Object.values(scoreObj!).every(val => val === 3) && (Object.values(scoreObj!).length === (22 - selectedMinimumRangeValue))
+        console.log('is done = ', isDone)
+        setWeHaveAWinner(isDone);
+        if (pl && isDone) {
+            pl.setPointScore = (pl.setPointScore ?? 0) + 1;
+        }
     }
 
     const handleChosenScore = (score: number) => {
@@ -36,16 +48,13 @@ export const ShowScoreChoices = () => {
 
     return (
         <div className='player-score-choices-wrapper'>
-            <div className='player-score-choices-caption'>Tap Score</div>
+            <div className='player-score-choices-caption'>TAP SCORE</div>
             <div className='player-score-choices-container'>
-                <span className='player-score player-score-i' onClick={() => handleChosenScore(1)}>|
-                    <span className='separator'>&nbsp;/&nbsp;</span>
-                </span>
-                <span className='player-score player-score-ii' onClick={() => handleChosenScore(2)}>||
-                    <span className='separator'>&nbsp;/&nbsp;</span></span>
+                <span className='player-score player-score-i' onClick={() => handleChosenScore(1)}>|</span>
+                <span className='player-score player-score-ii' onClick={() => handleChosenScore(2)}>||</span>
                 <span className='player-score player-score-iii' onClick={() => handleChosenScore(3)}>|||</span>
             </div>
-            <button className='player-score-choices-cancel-btn' onClick={(() => setScoreChoicesIsVisible(false))}>Cancel</button>
+            <button className='player-score-choices-cancel-btn' onClick={(() => setScoreChoicesIsVisible(false))}>CANCEL</button>
         </div>
     
     )

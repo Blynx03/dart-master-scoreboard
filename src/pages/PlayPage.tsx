@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import Title from '../components/Title'
 import AddPlayer from '../components/AddPlayer'
 import GameRange from '../components/GameRange'

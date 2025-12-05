@@ -1,10 +1,10 @@
-import React, { createContext, type Dispatch, type RefObject, type SetStateAction } from 'react'
+import { createContext, type Dispatch, type RefObject, type SetStateAction } from 'react'
 
 export interface UserContextType {
     playerName: string;
     setPlayerName: Dispatch<SetStateAction<string>>;
-    playerIndex: number | undefined;
-    setPlayerIndex: Dispatch<SetStateAction<number | undefined>>;
+    playerIndex: number;
+    setPlayerIndex: Dispatch<SetStateAction<number>>;
     players: PlayersType[];
     setPlayers: Dispatch<SetStateAction<PlayersType[]>>;
     inputPlayerNameRef: RefObject<HTMLInputElement | null>;
@@ -20,12 +20,17 @@ export interface UserContextType {
     setScoreChoicesIsVisible: Dispatch<SetStateAction<boolean>>;
     chosenScore: string;
     setChosenScore: Dispatch<SetStateAction<string>>;
+    weHaveAWinner: boolean;
+    setWeHaveAWinner: Dispatch<SetStateAction<boolean>>;
+    playingAgain: boolean;
+    setPlayingAgain: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface PlayersType {
     name: string,
     numberScores?: Record<number, number>,
-    stringScores?: Record<number, string>
+    stringScores?: Record<number, string>,
+    setPointScore?: number
 }
 
 

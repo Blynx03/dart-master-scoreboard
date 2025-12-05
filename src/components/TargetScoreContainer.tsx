@@ -1,23 +1,18 @@
-import React, { useContext, useState, type Dispatch, type SetStateAction } from 'react'
+import { useContext } from 'react'
 import UserContext, { type UserContextType } from '../context/UserContext'
-import { ShowScoreChoices } from './ShowScoreChoices';
 
 export interface TargetScoreProps {
     target: number,
-    range: number,
     playerIndex: number
 }
 
-const TargetScoreContainer = ({target, range, playerIndex }: TargetScoreProps) => {
-    const { players, setPlayerName, setPlayerIndex, selectedMinimumRangeValue, playerScoreContainerClass, chosenScore, setScoreChoicesIsVisible } = useContext(UserContext) as UserContextType;
-    const [ score, setScore ] = useState<string>('');
+const TargetScoreContainer = ({target, playerIndex }: TargetScoreProps) => {
+    const { players, setPlayerName, setPlayerIndex, selectedMinimumRangeValue, playerScoreContainerClass, setScoreChoicesIsVisible } = useContext(UserContext) as UserContextType;
 
     const handleClick = (playerName: string, playerIndex: number) => {
-        console.log(playerName, ' ', playerIndex)
-        console.log('players = ', players)
-        setScoreChoicesIsVisible(true);
         setPlayerName(playerName);
         setPlayerIndex(playerIndex);
+        setScoreChoicesIsVisible(true);
     }
 
     return (
@@ -27,8 +22,9 @@ const TargetScoreContainer = ({target, range, playerIndex }: TargetScoreProps) =
                 {players.map((player, index) => 
                     (
                         <div className={`score-container ${playerScoreContainerClass}`} key={index} onClick={() => handleClick(player.name, playerIndex)} >
-                            {player.stringScores?.[playerIndex]}
-                            
+                            <div className='score'>
+                                {player.stringScores?.[playerIndex]}
+                            </div>
                         </div>
                     )
                 )}

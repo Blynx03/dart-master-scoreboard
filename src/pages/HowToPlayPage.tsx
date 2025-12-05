@@ -6,8 +6,10 @@ const HowToPlayPage = () => {
   return (
     <div className='how-to-play-container'>
         <div className='how-to-play-title-container'>
-            <div className='how-to-play-title'>How To Play</div>
-            <div className='how-to-play-caption'>Tactics (Also known as: “Cutthroat Cricket”)</div>
+            <div className='how-to-play-title'>HOW TO PLAY</div>
+            <div className='how-to-play-caption-wrapper'>
+              <div className='how-to-play-caption'>TACTICS (ALSO KNOWN AS: “CUTTHROAT CRICKET”)</div>
+            </div>
         </div>
         <div className='how-to-play-details-container'>
             <div className='how-to-play-page-description-title'>Objective

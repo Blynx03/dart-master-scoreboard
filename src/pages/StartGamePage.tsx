@@ -1,17 +1,24 @@
-import React, { useContext, useState, useEffect, type ReactNode } from 'react'
+import { useContext, useEffect } from 'react'
 import UserContext, { type UserContextType } from '../context/UserContext'
-import ButtonNav from '../components/ButtonNav';
 import Footer from '../components/Footer';
 import ShowTargetsAndScoreContainers from '../components/ShowTargetsAndScoreContainers';
 import ShowPlayersName from '../components/ShowPlayersName';
 import { ShowScoreChoices } from '../components/ShowScoreChoices';
+import SetPointRecordContainer from '../components/SetPointRecordContainer';
+import ShowWinnerContainer from '../components/ShowWinnerContainer';
+import { useNavigate } from 'react-router-dom';
 
 const StartGamePage = () => {
 
-    const { players, setPlayers, selectedMinimumRangeValue, playersTurn, setPlayerScoreContainerClass, setScoreboardPlayersNameContainerClass, scoreChoicesIsVisible, setPlayersTurn } = useContext(UserContext) as UserContextType;
+    const { players, setPlayers, setPlayerName, setPlayerIndex, setSelectedMinimumRangeValue, setChosenScore, setWeHaveAWinner, setScoreChoicesIsVisible, setPlayerScoreContainerClass, setScoreboardPlayersNameContainerClass, scoreChoicesIsVisible, playingAgain, setPlayingAgain, weHaveAWinner } = useContext(UserContext) as UserContextType;
+    const nav = useNavigate();
 
     useEffect(() => {
+        setPlayingAgain(false);
         switch (players.length) {
+            case 1: setPlayerScoreContainerClass('player-score-row-one-player');
+                    setScoreboardPlayersNameContainerClass('scoreboard-one-player-name-container');
+                    break;
             case 2: setPlayerScoreContainerClass('player-score-row-two-players');
                     setScoreboardPlayersNameContainerClass('scoreboard-two-players-name-container');
                     break;
@@ -26,12 +33,19 @@ const StartGamePage = () => {
         }
     },[setPlayers]);
 
-    const handleAddScore = () => {
-        console.log('score added')
-        // make targets clickable only when add-score-btn is pressed
-        // provide 3 choices for scoring (1, 2 and 3)
-        // store points in useState for each player
-        // 
+    const resetAll = () => {
+        setPlayers([]);
+        setPlayerName('');
+        setPlayerIndex(0);
+        setSelectedMinimumRangeValue(0);
+        setChosenScore('');
+        setWeHaveAWinner(false);
+        setScoreChoicesIsVisible(false);
+    }
+
+    const handleQuit = () => {
+        resetAll();
+        nav('/');
     }
 
     return (
@@ -45,8 +59,9 @@ const StartGamePage = () => {
             <ShowPlayersName />
             <ShowTargetsAndScoreContainers />
             {scoreChoicesIsVisible ? <ShowScoreChoices /> : null}
-            <button className='add-score-btn' onClick={()=>handleAddScore()} value={playersTurn} />
-            <ButtonNav classes='btn start-game-page-quit-btn' choice='' text='Quit' />
+            {playingAgain ? <SetPointRecordContainer /> : null}
+            {weHaveAWinner && <ShowWinnerContainer />}
+            <button className='btn start-game-page-quit-btn' onClick={() => handleQuit()} >QUIT</button>
             <Footer />
         </div>
     )
