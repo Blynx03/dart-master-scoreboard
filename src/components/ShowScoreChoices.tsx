@@ -5,12 +5,11 @@ export const ShowScoreChoices = () => {
     const { players, setPlayers, playerName, playerIndex, selectedMinimumRangeValue, setChosenScore, setScoreChoicesIsVisible, setWeHaveAWinner } = useContext(UserContext) as UserContextType;
 
     const updateScore = (score: number, storeScore: string) => {
-        const updatedPlayers = players.map((player, i) => {
+        const updatedPlayers = players.map((player) => {
             if (player.name !== playerName || playerIndex === undefined) return player;
 
             return {...player, numberScores: {...(player.numberScores || {}), [playerIndex]: score}, stringScores: {...(player.stringScores || {}), [playerIndex]: storeScore} 
             }})
-        console.log('updated Players = ', updatedPlayers)
         setPlayers(updatedPlayers);
         checkScores(updatedPlayers)
     }
@@ -20,7 +19,6 @@ export const ShowScoreChoices = () => {
             
         let scoreObj = pl?.numberScores;
         let isDone = Object.values(scoreObj!).every(val => val === 3) && (Object.values(scoreObj!).length === (22 - selectedMinimumRangeValue))
-        console.log('is done = ', isDone)
         setWeHaveAWinner(isDone);
         if (pl && isDone) {
             pl.setPointScore = (pl.setPointScore ?? 0) + 1;
