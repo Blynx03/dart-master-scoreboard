@@ -48,8 +48,15 @@ const ShowWinnerContainer = () => {
             <div className='winner-caption'>
                 CONGRATULATIONS
             </div>
-            <div className='winner'>
-                {`${playerName}!!!`} 
+            <div className='winner-trophy-player-container'>
+                <div className='trophy-container'>
+                    <img src='/src/assets/images/dart-trophy.png' className='trophy'/>
+                </div>
+                <div className='winner-player-container'>
+                    <div className='winner'>
+                        {`${playerName}!`} 
+                    </div>
+                </div>
             </div>
         </div>
         <div className="winner-btn-container">
