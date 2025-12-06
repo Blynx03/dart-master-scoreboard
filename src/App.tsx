@@ -40,7 +40,7 @@ function App() {
   }
 
   return ( 
-    <BrowserRouter>
+    <BrowserRouter basename="/dart-master-scoreboard">
       <UserContext.Provider value={value}>
           <Routes>
               <Route path='/' element={<MainPage />} />
