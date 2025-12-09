@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import UserContext, { type PlayersType, type UserContextType } from '../context/UserContext';
 
 export const ShowScoreChoices = () => {
-    const { players, setPlayers, playerName, playerIndex, selectedMinimumRangeValue, setChosenScore, setScoreChoicesIsVisible, setWeHaveAWinner } = useContext(UserContext) as UserContextType;
+    const { players, setPlayers, playerName, playerIndex, selectedMinimumRangeValue, setChosenScore, setScoreChoicesIsVisible, setWeHaveAWinner, setSetPointWinner } = useContext(UserContext) as UserContextType;
 
     const updateScore = (score: number, storeScore: string) => {
         const updatedPlayers = players.map((player) => {
@@ -22,6 +22,7 @@ export const ShowScoreChoices = () => {
         setWeHaveAWinner(isDone);
         if (pl && isDone) {
             pl.setPointScore = (pl.setPointScore ?? 0) + 1;
+            setSetPointWinner(pl.name);
         }
     }
 

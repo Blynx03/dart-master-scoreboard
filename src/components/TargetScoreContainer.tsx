@@ -7,7 +7,7 @@ export interface TargetScoreProps {
 }
 
 const TargetScoreContainer = ({target, playerIndex }: TargetScoreProps) => {
-    const { players, setPlayerName, setPlayerIndex, selectedMinimumRangeValue, playerScoreContainerClass, setScoreChoicesIsVisible } = useContext(UserContext) as UserContextType;
+    const { players, setPlayerName, setPlayerIndex, selectedMinimumRangeValue, playerScoreContainerClass, scoreChoicesIsVisible, setScoreChoicesIsVisible, weHaveAWinner } = useContext(UserContext) as UserContextType;
 
     const handleClick = (playerName: string, playerIndex: number) => {
         setPlayerName(playerName);
@@ -21,7 +21,7 @@ const TargetScoreContainer = ({target, playerIndex }: TargetScoreProps) => {
             <div className='player-score-container'>
                 {players.map((player, index) => 
                     (
-                        <div className={`score-container ${playerScoreContainerClass}`} key={index} onClick={() => handleClick(player.name, playerIndex)} >
+                        <div className={`score-container ${playerScoreContainerClass}`} key={index} onClick={scoreChoicesIsVisible || weHaveAWinner ?  undefined : () => handleClick(player.name, playerIndex)} >
                             <div className='score'>
                                 {player.stringScores?.[playerIndex]}
                             </div>

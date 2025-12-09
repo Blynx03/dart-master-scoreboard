@@ -1,9 +1,11 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import UserContext, { type UserContextType } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom';
+import dartTrophy from '../assets/images/dart-trophy.png'
 
 const ShowWinnerContainer = () => {
-    const { players, setPlayers, playerName, setPlayerName, setPlayerIndex, setSelectedMinimumRangeValue, setScoreChoicesIsVisible, setChosenScore, setWeHaveAWinner, setPlayingAgain} = useContext(UserContext) as UserContextType;
+    const { players, setPlayers, playerName, setPlayerName, setPlayerIndex, setSelectedMinimumRangeValue, setScoreChoicesIsVisible, setChosenScore, setWeHaveAWinner, setPointWinner, setPlayingAgain} = useContext(UserContext) as UserContextType;
+
     const nav = useNavigate();
 
     const playAnotherRound = () => {
@@ -50,11 +52,11 @@ const ShowWinnerContainer = () => {
             </div>
             <div className='winner-trophy-player-container'>
                 <div className='trophy-container'>
-                    <img src='/src/assets/images/dart-trophy.png' className='trophy'/>
+                    <img src={dartTrophy} className='trophy'/>
                 </div>
                 <div className='winner-player-container'>
                     <div className='winner'>
-                        {`${playerName}!`} 
+                        {`${setPointWinner}!`} 
                     </div>
                 </div>
             </div>

@@ -24,6 +24,8 @@ export interface UserContextType {
     setWeHaveAWinner: Dispatch<SetStateAction<boolean>>;
     playingAgain: boolean;
     setPlayingAgain: Dispatch<SetStateAction<boolean>>;
+    setPointWinner: string;
+    setSetPointWinner: Dispatch<SetStateAction<string>>;
 }
 
 export interface PlayersType {

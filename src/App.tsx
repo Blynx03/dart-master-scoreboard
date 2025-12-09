@@ -22,6 +22,7 @@ function App() {
   const [ chosenScore, setChosenScore ] = useState<string>('');
   const [ weHaveAWinner, setWeHaveAWinner ] = useState<boolean>(false);
   const [ playingAgain, setPlayingAgain ] = useState<boolean>(false);
+  const [ setPointWinner, setSetPointWinner ] = useState<string>('');
 
   
   const value = {
@@ -36,7 +37,8 @@ function App() {
     scoreChoicesIsVisible, setScoreChoicesIsVisible,
     chosenScore, setChosenScore,
     weHaveAWinner, setWeHaveAWinner,
-    playingAgain, setPlayingAgain
+    playingAgain, setPlayingAgain,
+    setPointWinner, setSetPointWinner
   }
 
   return ( 
