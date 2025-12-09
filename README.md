@@ -2,7 +2,7 @@
 ### A Modern Scoreboard App for Tactics/Cricket Dart Games  
 ---
 
-DartMaster Scoreboard is a fully interactive, responsive, and intuitive scoreboard application built specifically for the **Tactics/Cricket dart game variant** and for IPAD/Tablet users only.
+DartMaster Scoreboard is a fully interactive, responsive, and intuitive scoreboard application built specifically for the **Tactics/Cricket dart game variant**.
 
 This project demonstrates clean front-end engineering practices using **React, TypeScript, Context API, React Router**, structured component logic, and responsive UI/UX design.  
 It will also be deployed on **GitHub Pages** so players can try it online.
@@ -232,7 +232,7 @@ npm run build
 
 ## 🌐 **Live Demo**
 
-_Add GitHub Pages link here once deployed._
+(https://blynx03.github.io/dart-master-scoreboard/)
 
 ---
 

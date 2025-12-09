@@ -50,19 +50,21 @@ const StartGamePage = () => {
 
     return (
         <div className='game-container'>
-            <div className='game-title-container'>
-                <div className='game-title-wrapper'>
-                    <span className="game-title">DART MASTERS SCOREBOARD</span>
+            <div className='game-main-container'>
+                <div className='game-title-container'>
+                    <div className='game-title-wrapper'>
+                        <span className="game-title">DART MASTERS SCOREBOARD</span>
+                    </div>
                 </div>
+                
+                <ShowPlayersName />
+                <ShowTargetsAndScoreContainers />
+                {scoreChoicesIsVisible ? <ShowScoreChoices /> : null}
+                {playingAgain ? <SetPointRecordContainer /> : null}
+                <button className='btn start-game-page-quit-btn' onClick={() => handleQuit()} >QUIT</button>
+                <Footer />
             </div>
-            
-            <ShowPlayersName />
-            <ShowTargetsAndScoreContainers />
-            {scoreChoicesIsVisible ? <ShowScoreChoices /> : null}
-            {playingAgain ? <SetPointRecordContainer /> : null}
             {weHaveAWinner && <ShowWinnerContainer />}
-            <button className='btn start-game-page-quit-btn' onClick={() => handleQuit()} >QUIT</button>
-            <Footer />
         </div>
     )
 }
