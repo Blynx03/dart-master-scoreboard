@@ -188,8 +188,6 @@ This structure is **scalable**, clean, and follows **industry best practices**.
 
 ## 📸 **Screenshots**
 
-(Add images here)
-
 ### 🏠 Main Menu  
 <!-- ![Image](src/assets/images/main-page.png) -->
 ![Image](https://github.com/Blynx03/dart-master-scoreboard/raw/main/src/assets/images/main-page.png?raw=true)
@@ -200,15 +198,15 @@ This structure is **scalable**, clean, and follows **industry best practices**.
 
 ### 👥 Add Players  
 <!-- ![Image](src/assets/images/add-players.png) -->
-[Image](https://github.com/Blynx03/dart-master-scoreboard/raw/main/src/assets/images/add-players.png?raw=true)
+![Image](https://github.com/Blynx03/dart-master-scoreboard/raw/main/src/assets/images/add-players.png?raw=true)
 
 ### 🎯 Scoreboard  
 <!-- ![Image](src/assets/images/scoreboard-with-setpoint.png) -->
-[Image](https://github.com/Blynx03/dart-master-scoreboard/raw/main/src/assets/images/scoreboard-with-setpoint.png?raw=true)
+![Image](https://github.com/Blynx03/dart-master-scoreboard/raw/main/src/assets/images/scoreboard-with-setpoint.png?raw=true)
 
 ### 🏆 Winner Popup  
 <!-- ![Image](src/assets/images/winner.png) -->
-[Image](https://github.com/Blynx03/dart-master-scoreboard/raw/main/src/assets/images/winner.png?raw=true)
+![Image](https://github.com/Blynx03/dart-master-scoreboard/raw/main/src/assets/images/winner.png?raw=true)
 
 ---
 
