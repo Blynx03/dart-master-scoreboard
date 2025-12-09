@@ -4,12 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import dartTrophy from '../assets/images/dart-trophy.png'
 
 const ShowWinnerContainer = () => {
-    const { players, setPlayers, playerName, setPlayerName, setPlayerIndex, setSelectedMinimumRangeValue, setScoreChoicesIsVisible, setChosenScore, setWeHaveAWinner, setPointWinner, setPlayingAgain} = useContext(UserContext) as UserContextType;
+    const { players, setPlayers, setPlayerName, setPlayerIndex, setSelectedMinimumRangeValue, setScoreChoicesIsVisible, setChosenScore, setWeHaveAWinner, setPointWinner, setPlayingAgain} = useContext(UserContext) as UserContextType;
 
     const nav = useNavigate();
 
     const playAnotherRound = () => {
-        console.log('is clicked')
         const resettedPlayersValues = players.map(player => ({...player, numberScores: {}, stringScores: {}}));
         setPlayers(resettedPlayersValues);
         setPlayerName('');

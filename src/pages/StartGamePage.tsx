@@ -10,7 +10,19 @@ import { useNavigate } from 'react-router-dom';
 
 const StartGamePage = () => {
 
-    const { players, setPlayers, setPlayerName, setPlayerIndex, setSelectedMinimumRangeValue, setChosenScore, setWeHaveAWinner, setScoreChoicesIsVisible, setPlayerScoreContainerClass, setScoreboardPlayersNameContainerClass, scoreChoicesIsVisible, playingAgain, setPlayingAgain, weHaveAWinner } = useContext(UserContext) as UserContextType;
+    const { 
+        players, setPlayers, 
+        setPlayerName, 
+        setPlayerIndex, 
+        setSelectedMinimumRangeValue, 
+        setChosenScore, 
+        setPlayerScoreContainerClass, 
+        setScoreboardPlayersNameContainerClass, 
+        scoreChoicesIsVisible, setScoreChoicesIsVisible,
+        playingAgain, setPlayingAgain, 
+        weHaveAWinner, setWeHaveAWinner
+    } = useContext(UserContext) as UserContextType;
+
     const nav = useNavigate();
 
     useEffect(() => {

@@ -8,7 +8,7 @@ const TheBoardPage = () => {
         <div className='the-board-page-title-container'>
             <div className='the-board-title'>UNDERSTANDING THE BOARD</div>
             <div className='the-board-caption-wrapper'>
-              <div className='the-board-caption'>A SIMPLE GUIDE TO WHAT EVERY PART OF THE BOARD DOES.</div>
+              <div className='the-board-caption'>GUIDE TO THE BOARD'S PARTS</div>
             </div>
         </div>
 
