@@ -135,7 +135,7 @@ body {
 /* Footer */
 .footer {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   font-family: var(--std-font);
   width: 100%;
   height: 50px;
@@ -839,7 +839,8 @@ label:hover {
 
 @media screen and (min-width: 320px) and (max-width: 480px) {
   .home-page {
-    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
     width: 100dvw;
     background-position: -10ch -2ch;
   }
