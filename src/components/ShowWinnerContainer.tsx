@@ -1,10 +1,18 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import UserContext, { type UserContextType } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom';
 import dartTrophy from '../assets/images/dart-trophy.png'
 
 const ShowWinnerContainer = () => {
-    const { players, setPlayers, setPlayerName, setPlayerIndex, setSelectedMinimumRangeValue, setScoreChoicesIsVisible, setChosenScore, setWeHaveAWinner, setPointWinner, setPlayingAgain} = useContext(UserContext) as UserContextType;
+    const { players, setPlayers, 
+        setPlayerName, 
+        setPlayerIndex, 
+        setSelectedMinimumRangeValue, 
+        setScoreChoicesIsVisible, 
+        setChosenScore, 
+        setWeHaveAWinner, 
+        setPointWinner, 
+        setPlayingAgain} = useContext(UserContext) as UserContextType;
 
     const nav = useNavigate();
 
