@@ -39,7 +39,7 @@ const GameRange = () => {
             <div className='custom-range-container'>
                 <div className='custom-range-value'>{isCustomRangeSelected ? selectedMinimumRangeValue : ''}</div>
                 <div className='custom-range-input-container'>
-                    <div className='custom-range-min-max-value'>0</div>
+                    <div className='custom-range-min-max-value'>1</div>
                     <input id='custom-range' className='custom-range-input' type='range' disabled={isCustomRangeSelected ? false : true} min='1' max='20' step='1' onChange={(e) => handleSelectedCustomRange(e)}></input>
                     <div className='custom-range-min-max-value'>Bull</div>
                 </div>

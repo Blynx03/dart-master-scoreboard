@@ -14,7 +14,7 @@ function App() {
   const [ playerIndex, setPlayerIndex ] = useState<number>(0);
   const [ players, setPlayers ] = useState<PlayersType[]>([]);
   const inputPlayerNameRef = useRef<HTMLInputElement>(null);
-  const [ selectedMinimumRangeValue, setSelectedMinimumRangeValue ] = useState<number>(0);
+  const [ selectedMinimumRangeValue, setSelectedMinimumRangeValue ] = useState<number>(11);
   const [ playersTurn, setPlayersTurn ] = useState<string>('');
   const [ playerScoreContainerClass, setPlayerScoreContainerClass ] = useState<string>('');
   const [ scoreboardPlayersNameContainerClass, setScoreboardPlayersNameContainerClass ] = useState<string>('');

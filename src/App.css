@@ -49,28 +49,27 @@ body {
 }
 
 .title-container {
-  height: 26%;
+  height: 25%;
   width: 100vw;
-  padding: 40px 0 10px 0;
   color: var(--secondary-color);
-  gap: 10px;
+  gap: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .title-wrapper, .developer-wrapper, .caption-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 
 .title {
-  width: 80vw;
-  margin-top: 16px;
+  /* width: clamp(300px, 5vw, 600px); */
   font-family: var(--title-font);
-  font-size: clamp(1rem, 7vw, 8vw);
+  font-size: clamp(1.8rem, 5vw, 3.6rem);
   text-align: center;
   white-space: nowrap;
   transform: scaleY(2);
@@ -103,7 +102,7 @@ body {
   height: 35%;
   display: flex;
   flex-direction: column;
-  gap: clamp(30px, 35px, 40px);
+  gap: 35px;
   justify-content: center;
   align-items: center;
   /* margin-top: 30px; */
@@ -113,7 +112,7 @@ body {
   width: 50vw;
   height: 60px;
   font-family: var(--title-font);
-  font-size: clamp(0.8rem, 3.6vw, 1.6rem);
+  font-size: clamp(0.85rem, 3.6vw, 1.6rem);
   font-weight: 900;
   padding: 1% 2%;
   display: flex;
@@ -199,12 +198,12 @@ body {
 
 .add-player-input {
   height: auto;
-  width: 30vw;
+  width: 40%;
   padding: 0 20px;
 }
 
 .add-player-input[type="text"] {
-  font-size: 18px;
+  font-size: 0.95rem;
 }
 
 .add-player-input::placeholder {
@@ -223,7 +222,6 @@ body {
 /* for all the players container */
 .players-name-container {
   margin-top: 10px;
-  padding: 10px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -231,17 +229,16 @@ body {
   background-color: var(--bg-secondary-color);
   width: clamp(300px, 60%, 80%);
   border-radius: 20px;
-  border: 2px solid var(--primary-color);
+  border: 1px solid var(--primary-color);
 }
 
 /* for each player container */
 .player-name-container {
-  width: 80%;
+  width: 70%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
-  font-size: clamp(1rem, 1.2vw, 1.8rem);
+  font-size: clamp(0.9rem, 1.2vw, 1.6rem);
 }
 
 .player-name-container > span:first-child {
@@ -270,7 +267,7 @@ body {
 }
 
 .game-range-caption {
-  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-size: clamp(0.9rem, 1.6vw, 1.2rem);
   color: var(--primary-color);
 }
 
@@ -304,7 +301,7 @@ label:hover {
   flex-direction: column;
   align-items: center;
   margin: 5px;
-  width: clamp(280px, 90%, 500px);
+  width: clamp(240px, 90%, 500px);
   border-radius: 10px;
   border: 2px solid var(--primary-color);
 }
@@ -321,13 +318,13 @@ label:hover {
 }
 
 .custom-range-value {
-  font-size: clamp(1rem, 1.4vw, 1.8vw);
+  font-size: clamp(0.85rem, 1.4vw, 1.8vw);
   font-weight: 800;
   color: var(--primary-color);
 }
 
 .custom-range-min-max-value {
-  font-size: clamp(1rem, 1.4vw, 1.8vw);
+  font-size: clamp(0.85rem, 1.4vw, 1.8vw);
 }
 
 .custom-range-input[type='range'] {
@@ -338,16 +335,17 @@ label:hover {
   position: absolute;
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: clamp(250px, 4vw, 300px);
-  bottom: 150px;
+  bottom: 100px;
   gap: 10px;
 }
 
 .add-player-start-btn, .back-to-main-btn {
-  font-size: clamp(1rem, 1.2rem, 1.8rem);
-  padding: 1% 3%;
+  font-size: clamp(1rem, 2vw, 1.8rem);
+  padding: 1% 2%;
   height: 4vh;
-  width: clamp(200px, 240px, 300px);
+  width: clamp(160px, 70%, 300px);
 }
 
 /* HOW-TO-PLAY and THE-BOARD PAGES */
@@ -446,10 +444,10 @@ label:hover {
 }
 
 .how-to-play-btn-container > .btn, .the-board-btn-container > .btn {
-  width: clamp(200px, 40%, 350px);
+  width: clamp(180, 40%, 350px);
   height: 18px;
   font-size: 1rem;
-  padding: 16px 5px;
+  padding: 12px 5px;
   box-shadow: 0 0 12px lightgray;
 }
 
@@ -703,7 +701,7 @@ label:hover {
 .start-game-page-quit-btn {
   position: absolute;
   bottom: 100px;
-  width: clamp(240px, 20%, 40%);
+  width: clamp(160px, 20%, 40%);
   transition: transform 0.1s;
   cursor: pointer;
 }
@@ -715,11 +713,11 @@ label:hover {
 .winner-container {
   position: absolute;
   top: 5%;
-  left: calc((100% - clamp(280px, 80%, 60vw))/2);
+  left: calc((100% - clamp(280px, 80%, 700px))/2);
   background-color: rgba(0, 0, 0, 0.9);
-  border: 10px solid var(--supplementary-color);
+  border: 10px solid var(--active-color);
   border-radius: 20px;
-  width: clamp(280px, 80%, 60vw);
+  width: clamp(280px, 80%, 700px);
   height: 65%;
   display: flex;
   flex-direction: column;
@@ -742,7 +740,7 @@ label:hover {
 .winner-caption {
   font-size: clamp(1rem, 3vw, 2rem);
   transform: scaleY(2.4);
-  color: var(--secondary-color);
+  color: var(--supplementary-color);
 }
 
 .winner-trophy-player-container {
@@ -798,7 +796,7 @@ label:hover {
   width: clamp(200px, 80%, 400px);
   color: var(--bg-color);
   transform: scaleY(1.5);
-  background-color: var(--supplementary-color);
+  background-color: var(--active-color);
   /* padding: 1.5%; */
   cursor: pointer;
   transition: transform 0.2s;
@@ -822,7 +820,7 @@ label:hover {
 }
 
 .set-point-caption {
-  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-size: clamp(1rem, 4vw, 1.6rem);
   color: var(--supplementary-color);
 }
 
@@ -839,11 +837,124 @@ label:hover {
 
 /* responsive */
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 320px) and (max-width: 480px) {
   .home-page {
+    height: 100dvh;
+    width: 100dvw;
     background-position: -10ch -2ch;
   }
 
+  .footer {
+    height: 30px;
+    font-size: 0.7rem;
+  }
+
+  .rocket-icon {
+    font-size: 0.9rem;
+  }
+
+  .main-btn-container {
+    height: 40%;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+
+  .how-to-play-btn-container, .the-board-btn-container {
+    margin-top: 24px;
+    height: 14%;
+    gap: 8px;
+  }
+
+   .add-player-title {
+    margin-top: 6px;
+  }
+
+  .add-players-container {
+    padding: 4px;
+    gap: 0px;
+  }
+
+  .game-range-title {
+    margin-top: 4px;
+  }
+
+  .range-container {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .custom-range-container {
+    width: 260px;
+  }
+
+  .range-container {
+    margin-top: 2px;
+  }
+
+  .play-page-done-btns-container {
+    bottom: 80px;
+  }
+  .how-to-play-btn-container > .btn, .the-board-btn-container > .btn {
+    font-size: 0.9rem;
+    padding: 14px 4px;
+  }
+
+  .game-title-container {
+    height: 80px;
+  }
+
+  .player-score-choices-wrapper {
+    top: 240px;
+    border: 1px solid var(--active-color);
+  }
+
+  .player-score-choices-caption {
+    font-size: 1rem;
+  }
+
+  .player-score-choices-container {
+    height: 30px;
+    border: 1px solid var(--supplementary-color);
+  }
+
+  .player-score-choices-cancel-btn {
+    margin-top: 6px;
+    font-size: 0.8rem;
+  }
+
+  .winner-container {
+    border: 2px solid var(--active-color);
+    box-sizing: border-box;
+  }
+
+  .winner-caption-container {
+    padding: 5%;
+    gap: 20px;
+  }
+
+  .winner-btn-container {
+    gap: 18px;
+  }
+
+  .winner-btn {
+    width: 200px;
+    font-size: 0.6rem;
+    padding: 2px 3px;
+  }
+
+  .set-point-container {
+    height: 9%;
+    bottom: 126px;
+  }
+
+  .set-point-player-score-container {
+  font-size: 0.9rem;
+}
+
+  .start-game-page-quit-btn {
+    bottom: 60px;
+    height: 46px;
+  }
 }
 
 
@@ -855,9 +966,9 @@ label:hover {
     background-position: 0;
   }
 
-  .title {
+  /* .title {
     font-size: clamp(4rem, 5vw, 4.6rem);
-  }
+  } */
 
   .caption {
     font-size: clamp(1.3vw, 1.4vw, 1.5vw);
