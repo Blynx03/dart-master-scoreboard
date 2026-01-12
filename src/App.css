@@ -67,9 +67,8 @@ body {
 }
 
 .title {
-  /* width: clamp(300px, 5vw, 600px); */
   font-family: var(--title-font);
-  font-size: clamp(1.8rem, 5vw, 3.6rem);
+  font-size: clamp(1.6rem, 14vw, 3.8rem);
   text-align: center;
   white-space: nowrap;
   transform: scaleY(2);
@@ -173,8 +172,8 @@ body {
   margin-top: 20px;
   font-family: var(--title-font);
   font-weight: 600;
-  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
-  transform: scale(1.2, 1.4);
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  /* transform: scale(1.2, 1.4); */
 }
 
 .add-players-container {
@@ -214,7 +213,7 @@ body {
   color: yellow;
   width: 100px;
   height: auto;
-  font-size: clamp(1rem, 16px, 18px);
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
   margin-top: 2px;
   cursor: pointer;
 }
@@ -342,10 +341,10 @@ label:hover {
 }
 
 .add-player-start-btn, .back-to-main-btn {
-  font-size: clamp(1rem, 2vw, 1.8rem);
+  font-size: clamp(1rem, 2vw, 1.2rem);
   padding: 1% 2%;
   height: 4vh;
-  width: clamp(160px, 70%, 300px);
+  width: clamp(160px, 18vw, 280px);
 }
 
 /* HOW-TO-PLAY and THE-BOARD PAGES */
@@ -395,9 +394,9 @@ label:hover {
 
 .how-to-play-details-container, .the-board-page-description-container {
   margin-top: 20px;
-  width: clamp(240px, 55%, 640px);
+  width: clamp(300px, 55%, 640px);
   height: clamp(46%, 47%, 48%);
-  padding: 3% 5% 5%;
+  padding: 3% 3% 5%;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -475,7 +474,6 @@ label:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 2% 0; */
 }
 
 .game-title {
@@ -640,7 +638,6 @@ label:hover {
 .player-score-choices-wrapper {
   position: absolute;
   top: 40%;
-  /* border: 5px solid var(--supplementary-color); */
   border-radius: 30px;
   background-color: var(--bg-color);
   display: flex;
@@ -797,7 +794,6 @@ label:hover {
   color: var(--bg-color);
   transform: scaleY(1.5);
   background-color: var(--active-color);
-  /* padding: 1.5%; */
   cursor: pointer;
   transition: transform 0.2s;
   padding: 3px 5px;
@@ -836,8 +832,63 @@ label:hover {
 }
 
 /* responsive */
+@media screen and (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+  /* main page */
+  .home-page {
+    background-image: radial-gradient(circle at 40% 83%, transparent 0%, transparent 3%, rgba(0, 0, 0, 0.8) 35%,  rgba(0, 0, 0, 0.95) 45%,   rgba(0, 0, 0, 1) 100%), url('../src/assets/images/dart-image.png');
+    background-size: 110%;
+    background-position: 0;
+  }
 
-@media screen and (min-width: 320px) and (max-width: 480px) {
+  .caption {
+    font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+  }
+
+  .main-btn-container {
+    height: 50%;
+  }
+
+  /* how-to-play and the-board pages */
+  .how-to-play-details-container, .the-board-page-description-container {
+    margin-top: 40px;
+  }
+
+  .how-to-play-btn-container, .the-board-btn-container {
+    gap: 10px;
+  }
+
+  .players-name-container {
+    width: 70%;
+  }
+
+  .player-name-container {
+    font-size: 1.2rem;
+  }
+  .add-player-title, .game-range-title {
+    font-size: 2rem;
+  }
+
+  .game-range-caption {
+    font-size: 1.6rem;
+  }
+
+  .range-container > label {
+    font-size: 1.5rem;
+  }
+
+  .custom-range-input-container > * {
+    font-size: 1.6rem;
+  }
+
+  .play-page-done-btns-container{
+    bottom: 120px;
+  }
+
+  
+}
+
+
+@media screen and (min-width: 360px) and (max-width: 480px) {
   .home-page {
     min-height: 100vh;
     min-height: 100dvh;
@@ -877,6 +928,10 @@ label:hover {
 
   .game-range-title {
     margin-top: 4px;
+  }
+
+  .game-range-container {
+    margin-top: 20px;
   }
 
   .range-container {
@@ -959,59 +1014,3 @@ label:hover {
 }
 
 
-@media screen and (min-width: 1000px) {
-  /* main page */
-  .home-page {
-    background-image: radial-gradient(circle at 40% 83%, transparent 0%, transparent 3%, rgba(0, 0, 0, 0.8) 35%,  rgba(0, 0, 0, 0.95) 45%,   rgba(0, 0, 0, 1) 100%), url('../src/assets/images/dart-image.png');
-    background-size: 110%;
-    background-position: 0;
-  }
-
-  /* .title {
-    font-size: clamp(4rem, 5vw, 4.6rem);
-  } */
-
-  .caption {
-    font-size: clamp(1.3vw, 1.4vw, 1.5vw);
-  }
-
-  .main-btn-container {
-    height: 50%;
-  }
-
-  .btn {
-    width: 500px;
-  }
-
-
-  /* how-to-play and the-board pages */
-  .how-to-play-details-container, .the-board-page-description-container {
-    margin-top: 40px;
-  }
-
-  .how-to-play-btn-container, .the-board-btn-container {
-    gap: 10px;
-  }
-
-  /* add-player page */
-  .title-container > .caption-wrapper > .caption {
-    font-weight: clamp(2rem, 2.2rem, 3vw);
-  }
-  .add-player-btn.add-player-btn {
-    width: 100px;
-  }
-
-  .add-player-title {
-    margin-top: 40px;
-  }
-
-  .play-page-done-btns-container{
-    bottom: 120px;
-  }
-
-  .add-player-start-btn, .back-to-main-btn {
-    width: 100%;
-  } 
-
-  
-}
